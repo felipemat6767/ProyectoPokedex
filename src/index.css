@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Estonia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("C:\Users\felip\Desktop\Proyectos Personales\Pokedex\pokedex\src\images\Fondo.jpg");
+  background-position: center;
+}
+
+.navbar {
+  opacity:1;
+  filter:alpha(opacity=0.93); 
+  box-shadow: 0 0 12px 10px rgba(0, 0, 0, 0.644);
+  background-color: rgb(51, 123, 238);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h5{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.cardProfile {
+  box-shadow: 0 0 10px 5px rgba(228, 168, 168, 0.644);
+  border: 2px solid;
+  height: 70%;
+  background-color: rgba(245, 245, 245, 0.829);
+}
+
+.Titulos{
+  font-family: 'Lobster', cursive;
+  font-size:25px;
+  color:rgb(141, 141, 141);
+  background-color: antiquewhite;
+}
+
+.TextoNav{
+  font-family: 'Lobster', cursive;
+  font-weight: 700;
+  font-size:30px;
+  color: rgb(219, 112, 112);
+ transition: all 0.3s;
+}
+.TextoNav:hover{
+  font-size: 33px;
+}
+
+.Caracteristicas{
+  font-family: 'Courgette', cursive;
+  font-size:20px;
+  background-color: rgb(102, 102, 143);
+  color:rgb(152, 182, 149);
+  transition: all 0.3s;
+}
+
+.FondoVegetal {
+  color:rgb(207, 206, 206);
+  background-color: rgb(17, 173, 30);
+  border: 1px solid rgb(66, 66, 66);
+}
+.FondoFuego {
+  color:rgb(207, 206, 206);
+  background-color: rgb(218, 29, 29);
+  border: 1px solid rgb(66, 66, 66);
+}
+.FondoAgua {
+  color:rgb(207, 206, 206);
+  background-color: rgb(49, 28, 236);
+  border: 1px solid rgb(66, 66, 66);
+}
+.FondoInsecto {
+  color:rgb(207, 206, 206);
+  background-color: rgb(91, 92, 94);
+  border: 1px solid rgb(66, 66, 66);
+}
+.Caracteristicas:hover{
+  font-family:'Courgette';
+  font-size:22px;
+  
+}
