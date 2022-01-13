@@ -9,8 +9,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("C:\Users\felip\Desktop\Proyectos Personales\Pokedex\pokedex\src\images\Fondo.jpg");
-  background-position: center;
+   background: url("C:\Users\felip\Desktop\Proyectos Personales\Pokedex\PokedexFront\src\images\Fondo.jpg");
+   background-position: 'center';
+   background-size: 'cover';
+   background-repeat: 'no-repeat'
 }
 
 .navbar {

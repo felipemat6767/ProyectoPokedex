@@ -17,34 +17,57 @@ import Foto12 from "../images/012.png"
 import { useState } from "react";
 const fotos = [Foto1, Foto2, Foto3, Foto4, Foto5, Foto6, Foto7, Foto8, Foto9,Foto10,Foto11, Foto12]
 
-const nombres = ["Bulbasaur", "Ivysaur","Venasaur", "Squirtle","Warturtle","Blastoise", "Caterpie", "Metapod", "Butterfree"]
-
 
 const Home = () => {
-    const name = nombres.sort(function (a, b) {
-        return a.localeCompare(b);
-      });
-
-    const { store, actions } = useContext(Context)
-    const carta = store.event.map((event, i) => <Pokemon data={event} key={i} indice={i} 
-    image={fotos[i]} names = {name[i]} />)
-
-   console.log(carta.map((event)=> (event)))
- 
     useEffect(() => {
         actions.setInfo()
+        actions.getName()
     }, [])
    
+    const { store, actions } = useContext(Context)
+    
+    const poknames = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i}/>)
+   
+    poknames.forEach(element => 
+        store.names.push(element.props.data.name)
+    );
+    console.log(store.names)
+    
+    let i = -1
+
+    const nombres = [...store.names]
+    const nombressorted = nombres.sort()
+    console.log(nombressorted)
+    
+    const carta = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} pokname = {store.names[i]}/>) 
+    const cartarev = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} pokname = {store.names[i]}/>)  
+    const cartaA_Z = carta.map(function(pok){
+        i++
+        if( store.names[i] === nombressorted[i] ){
+            console.log(store.names[i])
+            return pok
+        }
+       
+    }) 
+    
+    console.log(cartaA_Z)
+    const Reverse = cartarev.reverse(function(num){ return num})
+    
+    
+    
     return (
         <div className="container row d-flex m-3 align-content-center justify-content-center">
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                 <option >Busqueda </option>
                 <option value="1">Numero inferior</option>
                 <option value="2">Numero Superior</option>
                 <option value="3">A-Z</option>
                 <option value="3">Z-A</option>
             </select>
-            {carta}
+            {}
+            {cartaA_Z}
+           
+              
         </div>
     )
 

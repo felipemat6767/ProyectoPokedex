@@ -6,9 +6,9 @@ import Pokemon from './Components/Pokemon';
 import Info from './Views/Info.js';
 import Home from './Views/Home.js';
 function App() {
-  return <Router>
+  return <Router style={{ backgroundImage: "url(/Fondo.jpg)" }}>
     <Navbar />
-    <Switch>
+    <Switch >
       <Route exact path="/">
         <Home />
       </Route>

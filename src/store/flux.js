@@ -17,7 +17,7 @@ export const getState = ({ setStore, getStore, getActions }) => {
       },
       getName: (item) => {
         const store = getStore();
-        setStore({ names: store.names.concat(item)})
+        setStore({ names: store.names})
       }
     },
   };
