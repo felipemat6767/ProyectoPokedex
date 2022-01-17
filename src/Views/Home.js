@@ -1,6 +1,6 @@
 
 import Pokemon from '../Components/Pokemon';
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from '../store/appContext';
 import Foto1 from "../images/Foto1.jpg"
 import Foto2 from "../images/002.png"
@@ -14,58 +14,56 @@ import Foto9 from "../images/009.png"
 import Foto10 from "../images/010.png"
 import Foto11 from "../images/011.png"
 import Foto12 from "../images/012.png"
-import { useState } from "react";
 const fotos = [Foto1, Foto2, Foto3, Foto4, Foto5, Foto6, Foto7, Foto8, Foto9,Foto10,Foto11, Foto12]
 
 
+
+
 const Home = () => {
+    
     useEffect(() => {
         actions.setInfo()
         actions.getName()
     }, [])
    
+    const getInitialState = () => {
+        const value = "1";
+        return value;
+      };
+    
+      const [value, setValue] = useState(getInitialState);
+    
+      const handleChange = (e) => {
+        setValue(e.target.value);
+      };
+    
     const { store, actions } = useContext(Context)
+    const NombresA_Z = [...store.event]
     
-    const poknames = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i}/>)
-   
-    poknames.forEach(element => 
-        store.names.push(element.props.data.name)
-    );
-    console.log(store.names)
-    
-    let i = -1
-
-    const nombres = [...store.names]
-    const nombressorted = nombres.sort()
-    console.log(nombressorted)
     
     const carta = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} pokname = {store.names[i]}/>) 
     const cartarev = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} pokname = {store.names[i]}/>)  
-    const cartaA_Z = carta.map(function(pok){
-        i++
-        if( store.names[i] === nombressorted[i] ){
-            console.log(store.names[i])
-            return pok
-        }
-       
-    }) 
-    
-    console.log(cartaA_Z)
     const Reverse = cartarev.reverse(function(num){ return num})
-    
-    
-    
+
+    const cartaA_Z = NombresA_Z.sort((a,b)=> a.name>b.name ? 1: a.name<b.name ? -1: 0).map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]}/>)  
+    const cartaA_ZRev = NombresA_Z.sort((a,b)=> a.name>b.name ? 1: a.name<b.name ? -1: 0).map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]}/>)  
+    const A_ZRev = cartaA_ZRev.reverse(function(num){ return num})
+
     return (
         <div className="container row d-flex m-3 align-content-center justify-content-center">
-            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option >Busqueda </option>
-                <option value="1">Numero inferior</option>
-                <option value="2">Numero Superior</option>
-                <option value="3">A-Z</option>
-                <option value="3">Z-A</option>
+            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value ={value} onChange={handleChange}>
+                <option de>Busqueda</option>
+                <option value ="1">Numero inferior</option>
+                <option value="3">Numero Superior</option>
+                <option value="4">A-Z</option>
+                <option value="5">Z-A</option>
             </select>
-            {}
-            {cartaA_Z}
+            {value ==="3" ? Reverse:carta + value ==="4" ? cartaA_Z:carta + value ==="5" ? A_ZRev:carta}
+            {console.log(value)}
+
+            
+            
+          
            
               
         </div>
