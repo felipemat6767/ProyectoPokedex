@@ -27,7 +27,7 @@ const Home = () => {
     }, [])
    
     const getInitialState = () => {
-        const value = "1";
+        const value = "";
         return value;
       };
     
@@ -39,6 +39,7 @@ const Home = () => {
     
     const { store, actions } = useContext(Context)
     const NombresA_Z = [...store.event]
+    
     
     
     const carta = store.event.map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} pokname = {store.names[i]}/>) 
@@ -54,12 +55,16 @@ const Home = () => {
             <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value ={value} onChange={handleChange}>
                 <option de>Busqueda</option>
                 <option value ="1">Numero inferior</option>
-                <option value="3">Numero Superior</option>
-                <option value="4">A-Z</option>
-                <option value="5">Z-A</option>
+                <option value="2">Numero Superior</option>
+                <option value="3">A-Z</option>
+                <option value="4">Z-A</option>
             </select>
-            {value ==="3" ? Reverse:carta + value ==="4" ? cartaA_Z:carta + value ==="5" ? A_ZRev:carta}
             {console.log(value)}
+            {value === "1" ? carta:""}
+            {value === "2" ? Reverse:""}
+            {value === "3" ? cartaA_Z:""}
+            {value === "4" ? cartaA_ZRev:""}
+       
 
             
             

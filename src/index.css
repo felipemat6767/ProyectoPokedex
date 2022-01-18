@@ -85,8 +85,20 @@ h5{
   background-color: rgb(91, 92, 94);
   border: 1px solid rgb(66, 66, 66);
 }
+.FondoDescripcion {
+  color:rgb(151, 65, 65);
+  background-color: rgb(36, 32, 56);
+  border: 1px solid rgb(66, 66, 66);
+  text-decoration: none;
+}
+.None{
+  text-decoration: none;
+}
+.FondoDescripcion p{
+  color:rgb(224, 103, 103);
+  font-size: 20px;  
+}
 .Caracteristicas:hover{
   font-family:'Courgette';
   font-size:22px;
-  
 }
