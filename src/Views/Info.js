@@ -11,7 +11,7 @@ const Info = (props) => {
 
     return (
         <div className="d-flex justify-content-center mt-5 flex-column align-items-center">
-            <div className="card mb-3 w-50 rounded-5" style={{ height: "400px" }}>
+            <div className="card mb-3 w-50 rounded-5" style={{ height: "440px" }}>
                 <h5 className="card-title mx-auto titpok mt-2">{query.get("name")}</h5>
                 <div className="row g-0 h-100">
                     <div className="col-md-6 h-100">
@@ -38,6 +38,8 @@ const Info = (props) => {
                                 <div className="mt-4">
                                     <p className="mb-2 colortipo">Peso </p>
                                     <p className="card-text colorcarac">{query.get("weight")}</p>
+                                    <p className="mb-2 colortipo">Sexo </p>
+                                    <p className="card-text colorcarac">{query.get("sex")}</p>
                                 </div>
                             </div>
                         </div>

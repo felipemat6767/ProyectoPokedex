@@ -27,7 +27,7 @@ const Home = () => {
     }, [])
    
     const getInitialState = () => {
-        const value = "";
+        const value = "1";
         return value;
       };
     
@@ -53,13 +53,14 @@ const Home = () => {
     return (
         <div className="container row d-flex m-3 align-content-center justify-content-center">
             <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value ={value} onChange={handleChange}>
-                <option de>Busqueda</option>
-                <option value ="1">Numero inferior</option>
+                <option>Busqueda</option>
+                <option value ="1" selected>Numero inferior</option>
                 <option value="2">Numero Superior</option>
                 <option value="3">A-Z</option>
                 <option value="4">Z-A</option>
             </select>
             {console.log(value)}
+            {value === "0" ? carta:""}
             {value === "1" ? carta:""}
             {value === "2" ? Reverse:""}
             {value === "3" ? cartaA_Z:""}
