@@ -28,17 +28,20 @@ const Home = () => {
 
 
     const [input, setInput ] = useState('');
+   
     const getInitialState = () => {
-        const value = "0";
+        let value = "0";
         return value;
+        
     };
     const [value, setValue] = useState(getInitialState);
     const handleChange = (e) => {
         setValue(e.target.value);
+        
     };
-
+   
     const { store, actions } = useContext(Context)
-    
+  
     const NombresA_Z = [...store.event]
 
 
@@ -50,30 +53,32 @@ const Home = () => {
     const cartaA_ZRev = NombresA_Z.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0).map((pokemon, i) => <Pokemon data={pokemon} key={i} indice={i} image={fotos[i]} />)
     const A_ZRev = cartaA_ZRev.reverse(function (num) { return num })
     const Name = carta.filter(function (num) {if(num.props.data.name === input) {return num}})
-    console.log(input)
+   
+    let numero = "A"
     return (
         <div className="container row d-flex m-3 align-content-center justify-content-center">
             <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" value={value} onChange={handleChange}>
-                <option>Busqueda</option>
-                <option value="1">Numero inferior</option>
-                <option value="2">Numero Superior</option>
+                <option>-- Alternativas de Busqueda --</option>
+                <option value = "0">Busqueda por nombre</option>
+                <option value="1">Orden Ascendiente</option>
+                <option value="2">Orden Decreciente</option>
                 <option value="3">A-Z</option>
                 <option value="4">Z-A</option>
             </select>
-            <input
+            {}
+           {value === "0" ? <input
                 type="text"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
                 placeholder="Ingresar Nombre de Pokemon"
-            />
-            {console.log(value)}
+            />: ""}
+            {console.log(numero)}
             {value === "1" ? carta : ""}
             {value === "2" ? Reverse : ""}
             {value === "3" ? cartaA_Z : ""}
             {value === "4" ? cartaA_ZRev : ""}
-
-         
-            {Name}
+            {value === "0" ? Name : ""}
+            
         </div>
     )
 
