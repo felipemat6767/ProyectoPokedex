@@ -19,9 +19,8 @@ body {
 
 .navbar {
   opacity:1;
-  filter:alpha(opacity=0.93); 
-  box-shadow: 0 0 12px 10px rgba(0, 0, 0, 0.644);
-  background-color: rgb(51, 123, 238);
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.897);
+  background-color: rgb(228, 228, 228);
 }
 
 code {
@@ -49,14 +48,14 @@ h5{
 }
 
 .TextoNav{
-  font-family: 'Lobster', cursive;
+  font-family: 'Calibri', cursive;
   font-weight: 700;
-  font-size:30px;
-  color: rgb(219, 112, 112);
- transition: all 0.3s;
+  font-size:25px;
+  color: rgb(189, 100, 100);
+  transition:font-size 0.3s;
 }
 .TextoNav:hover{
-  font-size: 33px;
+  font-size: 28px;
 }
 
 .Caracteristicas{
@@ -95,6 +94,7 @@ h5{
 }
 .None{
   text-decoration: none;
+  font-size:20px;
 }
 .FondoDescripcion p{
   color:rgb(224, 103, 103);
@@ -121,9 +121,16 @@ font-size: 18px;
   font-family: Libre Franklin;
   color: rgb(3, 3, 3);
   font-weight: 900;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .titpok{
 font-size: 30px;
 }
+
+.input{
+  height: 60px;
+  background-color: rgba(43, 46, 46);
+  color: rgb(255, 30, 0);
+}
+

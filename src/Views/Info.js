@@ -1,48 +1,49 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext} from "react";
+import {useParams } from "react-router-dom";
+import { GetPokbyId } from "../get/getPok";
+import { Context } from '../store/appContext';
 
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
 
 const Info = (props) => {
-    const query = useQuery();
-    const description = query.get("description")
+    const { store } = useContext(Context)
+    const { Pokname } = useParams()
 
+    const Pok = GetPokbyId(Pokname)
+
+    const { special_attack, weight, height, description, sex } = Pok
+    const imagepath = `../images/${Pokname}.png`
     return (
         <div className="d-flex justify-content-center mt-5 flex-column align-items-center">
-            <div className="card mb-3 w-50 rounded-5" style={{ height: "440px" }}>
-                <h5 className="card-title mx-auto titpok mt-2">{query.get("name")}</h5>
+            <div className="card mb-3  rounded-5" style={{ height: "440px", width: "800px" }}>
+                <h5 className="card-title mx-auto titpok mt-2">{Pokname}</h5>
                 <div className="row g-0 h-100">
                     <div className="col-md-6 h-100">
-                        <img src={query.get("image")} className="img-fluid rounded-start h-100" alt="..." />
+                        <img src={imagepath} className="img-fluid rounded-start h-100" alt={Pokname} />
                     </div>
-                    <div className="col-md-6">
-                        <p className="card-text m-1">{description}</p>
-                        <div className="card-body d-flex justify-content-between mt-3 fondocarac p-3 rounded-3 m-2">
-                            <div className="col-6">
-                                <div className="">
-                                    <p className="mb-2 colortipo">Tipo </p>
-                                    <p className="card-text colorcarac">{query.get("type")}</p>
-                                </div>
-                                <div className="mt-4 p-0">
-                                    <p className="mb-2 colortipo">Habilidad </p>
-                                    <p className="card-text colorcarac">{query.get("attack")}</p>
-                                </div>
+                    <div className="col-md-6 h-100 d-flex justify-content-around flex-column">
+                        <div className="fondocarac m-1">
+                            <div className="d-flex flex-column align-items-center p-1">
+                                <p className="mb-2 colortipo">Tipo </p>
+                                <p className="card-text colorcarac text-center">{description}</p>
                             </div>
-                            <div className="col-6 d-flex justify-content-end flex-column align-items-center">
-                                <div className="">
-                                    <p className="mb-2 colortipo">Altura </p>
-                                    <p className="card-text colorcarac">{query.get("height")}</p>
-                                </div>
-                                <div className="mt-4">
-                                    <p className="mb-2 colortipo">Peso </p>
-                                    <p className="card-text colorcarac">{query.get("weight")}</p>
-                                    <p className="mb-2 colortipo">Sexo </p>
-                                    <p className="card-text colorcarac">{query.get("sex")}</p>
-                                </div>
+                            <div className="p-1 d-flex flex-column align-items-center">
+                                <p className="mb-2 colortipo">Habilidad </p>
+                                <p className="card-text colorcarac">{special_attack}</p>
+                            </div>
+                            <div className="d-flex flex-column align-items-center p-1">
+                                <span className="colortipo">Altura </span>
+                                <span className="card-text colorcarac">{height}</span>
+                            </div>
+                            <div className="d-flex flex-column align-items-center p-1">
+                                <span className="colortipo ">Peso </span>
+                                <span className="card-text colorcarac">{weight}</span>
+                            </div>
+                            <div className="d-flex flex-column align-items-center p-1">
+                                <span className="colortipo">Sexo </span>
+                                <span className="card-text colorcarac">{sex}</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
