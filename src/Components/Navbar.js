@@ -10,7 +10,10 @@ const Navbar = () => {
           <img src={NavbarImage} alt=""  height="50px" className="d-inline-block align-text-top" />
         </Link>
         <div className="" id="navbarNav">
-          <Link className="nav-link TextoNav" to="/search">Busqueda por Nombre</Link>
+          <Link className="TextoNav" to="/search">Busqueda por Nombre</Link>
+        </div>
+        <div className="" id="navbarNav">
+          <Link className="TextoNav" to="/form">Contáctanos</Link>
         </div>
 
       </div>

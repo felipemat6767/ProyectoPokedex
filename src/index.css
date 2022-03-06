@@ -50,12 +50,14 @@ h5{
 .TextoNav{
   font-family: 'Calibri', cursive;
   font-weight: 700;
-  font-size:25px;
+  text-decoration: none;
+  font-size: 20px;
   color: rgb(189, 100, 100);
-  transition:font-size 0.3s;
+  transition: all 0.3s;
+  ;
 }
 .TextoNav:hover{
-  font-size: 28px;
+  font-size: 25px;
 }
 
 .Caracteristicas{

@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import Info from './Views/Info.js';
 import Home from './Views/Home.js';
 import { Search } from './Views/Search.js';
+import { Form } from './Views/Form.js';
 
 function App() {
   return <BrowserRouter style={{ backgroundImage: "url(/Fondo.jpg)" }}>
@@ -18,6 +19,9 @@ function App() {
       </Route>
       <Route exact path="/search" element = {Search}>
         <Search/>
+      </Route>
+      <Route exact path="/form" element = {Form}>
+        <Form/>
       </Route>
     </Switch>
   </BrowserRouter>
