@@ -136,3 +136,29 @@ font-size: 30px;
   color: rgb(255, 30, 0);
 }
 
+.form-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  
+}
+.form{
+  display: flex;
+  background-color: #0dcaf0;
+  flex-direction: column;
+  padding: 20px
+}
+
+.form-section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-element{
+  display: flex;
+  text-align: center;
+  padding: 5px;
+  flex-direction: column;
+}
